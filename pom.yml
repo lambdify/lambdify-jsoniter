@@ -1,0 +1,23 @@
+modelVersion: 4.0.0
+
+parent:
+  groupId: io.skullabs.boilerplates
+  artifactId: java-8
+  version: 1.0.0
+
+groupId: org.lambdify
+artifactId: lambdify-jsoniter
+version: 0.6.0.Final
+packaging: jar
+
+properties:
+  version.jackson: "2.9.5"
+  version.jsoniter: "0.9.19"
+
+dependencies:
+- { groupId: org.lambdify, artifactId: lambdify-aws-client-core, version: "${project.version}", scope: "provided" }
+- { groupId: org.lambdify, artifactId: lambdify-core, version: "${project.version}", scope: "provided" }
+- { groupId: org.lambdify, artifactId: lambdify-apigateway-java, version: "${project.version}", scope: "provided" }
+- { groupId: com.fasterxml.jackson.core, artifactId: jackson-annotations, version: "${version.jackson}" }
+- { groupId: com.jsoniter, artifactId: jsoniter, version: "${version.jsoniter}" }
+
