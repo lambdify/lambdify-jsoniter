@@ -1,11 +1,10 @@
 package lambdify.aws.client.core.jsoniter;
 
 import java.io.*;
-import java.nio.ByteBuffer;
-import java.util.Base64;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.output.JsonStream;
-import com.jsoniter.spi.*;
+import com.jsoniter.spi.JsoniterSpi;
+import lambdify.aws.client.core.jsoniter.extra.*;
 import lambdify.core.FunctionSerializer;
 import lombok.experimental.Accessors;
 import lombok.val;
@@ -17,34 +16,12 @@ import lombok.val;
 public class JsoniterFunctionSerializer implements FunctionSerializer {
 
 	public JsoniterFunctionSerializer(){
-		registerDecoderForByteBuffer();
-		registerEncoderForByteBuffer();
-	}
-
-	private void registerDecoderForByteBuffer() {
-		JsoniterSpi.registerTypeDecoder( ByteBuffer.class, new Decoder() {
-			public Object decode(JsonIterator iter) throws IOException {
-				Slice slice = iter.readStringAsSlice();
-				byte[] bytes = Base64.getDecoder().decode( slice.toString() );
-				return ByteBuffer.wrap( bytes );
-			}
-		} );
-	}
-
-	private void registerEncoderForByteBuffer() {
-		JsoniterSpi.registerTypeEncoder( byte[].class, new Encoder() {
-			public void encode(Object obj, JsonStream stream) throws IOException {
-				stream.write( 34 );
-				ByteBuffer buffer = (ByteBuffer) obj;
-				ByteBuffer encoded = Base64.getEncoder().encode( buffer );
-				stream.write( encoded.array() );
-				stream.write( 34 );
-			}
-		} );
+		ByteArraySupport.enable();
+		Java8DateTimeSupport.enable();
 	}
 
 	@Override
-	public void serialize(Object object, OutputStream outputStream) throws IOException {
+	public void serialize(Object object, OutputStream outputStream) {
 		JsonStream.serialize( JsoniterConf.JACKSON_SUPPORT, object, outputStream );
 	}
 
