@@ -21,12 +21,12 @@ public class Java8DateTimeSupport {
 	}
 
 	public static void enable( String format ) {
-		if ( enabled )
-			throw new UnsupportedOperationException( "Java8 DateTime support is already enabled" );
-
-		val formatter = DateTimeFormatter.ofPattern( format );
-		registerLocalDateTimeDecoder( formatter );
-		registerLocalDateTimeEncoder( formatter );
+		if ( !enabled ) {
+			val formatter = DateTimeFormatter.ofPattern( format );
+			registerLocalDateTimeDecoder( formatter );
+			registerLocalDateTimeEncoder( formatter );
+			enabled = true;
+		}
 	}
 
 	private static void registerLocalDateTimeDecoder( final DateTimeFormatter formatter ) {
