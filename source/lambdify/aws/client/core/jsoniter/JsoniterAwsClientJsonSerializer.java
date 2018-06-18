@@ -1,5 +1,6 @@
 package lambdify.aws.client.core.jsoniter;
 
+import java.io.*;
 import java.util.*;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.output.JsonStream;
@@ -16,6 +17,16 @@ public class JsoniterAwsClientJsonSerializer implements AwsClientJsonSerializer 
 	@Override
 	public String serialize( Object object ) {
 		return JsonStream.serialize( JsoniterConf.JACKSON_SUPPORT, object );
+	}
+
+	@Override
+	public byte[] serializeAsBytes(Object object) {
+		try ( val byteArray = new ByteArrayOutputStream()) {
+			JsonStream.serialize( JsoniterConf.JACKSON_SUPPORT, object, byteArray );
+			return byteArray.toByteArray();
+		} catch ( IOException e ) {
+			throw new IllegalStateException( e );
+		}
 	}
 
 	@Override
