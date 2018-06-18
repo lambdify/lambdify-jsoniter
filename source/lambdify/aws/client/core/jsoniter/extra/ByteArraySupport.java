@@ -15,10 +15,11 @@ public class ByteArraySupport {
 	private static boolean enabled = false;
 
 	public static void enable(){
-		if ( enabled )
-			throw new UnsupportedOperationException( "ByteArray support is already enabled" );
-		registerDecoderForByteBuffer();
-		registerEncoderForByteBuffer();
+		if ( !enabled ) {
+			registerDecoderForByteBuffer();
+			registerEncoderForByteBuffer();
+			enabled = true;
+		}
 	}
 
 	private static void registerDecoderForByteBuffer() {
