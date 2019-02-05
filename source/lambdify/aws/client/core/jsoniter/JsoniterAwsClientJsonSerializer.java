@@ -30,12 +30,12 @@ public class JsoniterAwsClientJsonSerializer implements AwsClientJsonSerializer 
 	}
 
 	@Override
-	public <T> T unserialize(String input, Class<T> clazz) {
+	public <T> T deserialize(String input, Class<T> clazz) {
 		return JsonIterator.deserialize( JsoniterConf.JACKSON_SUPPORT, input, clazz );
 	}
 
 	@Override @SuppressWarnings( "unchecked" )
-	public <T> List<T> unserializeAsList(String s, Class<T> aClass) {
+	public <T> List<T> deserializeAsList(String s, Class<T> aClass) {
 		val parsedList = JsonIterator.deserialize( s ).asList();
 		val list = new ArrayList<T>();
 		for ( val entry : parsedList ) {

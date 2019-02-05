@@ -18,10 +18,10 @@ class JsoniterAwsClientJsonSerializerTest {
 	final AwsClientJsonSerializer functionSerializer = new JsoniterAwsClientJsonSerializer();
 
 	@Test @SneakyThrows
-	void unserializeAsList() {
+	void deserializeAsList() {
 		val bytes = Files.readAllBytes( Paths.get( DYNAMO_DB_EVENT ) );
 		val input = new String( bytes );
-		val dbEvent = functionSerializer.unserializeAsList( input, Record.class );
+		val dbEvent = functionSerializer.deserializeAsList( input, Record.class );
 		assertNotNull( dbEvent );
 		assertEquals( 3, dbEvent.size() );
 		System.out.println(dbEvent);
