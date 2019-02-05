@@ -1,7 +1,6 @@
 ## Jsoniter support for Lambdify
-Provides Jsoniter serializatiobn support for your Lambda functions. This is required because Lambdify doesn't
-enforces the JSON API you will use to serialize and deserialize requests you have received through Lambda requests.
-You have to choose manually which library will make the serialization for you.
+Provides Jackson serialization support for your Lambda functions. This is required once Lambdify was designed
+to be flexible not enforcing which JSON API you'll use to serialize and deserialize requests you have received.
 
 ## Reporting Bugs/Feature Requests
 
