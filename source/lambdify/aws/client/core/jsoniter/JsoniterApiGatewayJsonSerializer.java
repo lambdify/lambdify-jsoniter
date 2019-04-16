@@ -19,7 +19,7 @@ public class JsoniterApiGatewayJsonSerializer implements lambdify.apigateway.Ser
 	}
 
 	@Override
-	public <T> T toObject(String input, Class<T> clazz, boolean b) {
+	public <T> T toObject(String input, Class<T> clazz) {
 		return JsonIterator.deserialize( JsoniterConf.JACKSON_SUPPORT, input, clazz );
 	}
 }
