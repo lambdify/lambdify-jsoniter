@@ -1,4 +1,4 @@
-package lambdify.aws.client.core.jsoniter.extra;
+package lambdify.aws.jsoniter.extra;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

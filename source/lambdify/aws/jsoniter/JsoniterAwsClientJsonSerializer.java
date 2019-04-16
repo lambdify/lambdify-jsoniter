@@ -1,4 +1,4 @@
-package lambdify.aws.client.core.jsoniter;
+package lambdify.aws.jsoniter;
 
 import java.io.*;
 import java.util.*;

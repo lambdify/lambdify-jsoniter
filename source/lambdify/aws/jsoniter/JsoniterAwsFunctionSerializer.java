@@ -1,10 +1,10 @@
-package lambdify.aws.client.core.jsoniter;
+package lambdify.aws.jsoniter;
 
 import java.io.*;
 import com.jsoniter.JsonIterator;
 import com.jsoniter.output.JsonStream;
 import com.jsoniter.spi.JsoniterSpi;
-import lambdify.aws.client.core.jsoniter.extra.*;
+import lambdify.aws.jsoniter.extra.*;
 import lambdify.core.AwsFunctionSerializer;
 import lombok.experimental.Accessors;
 import lombok.val;

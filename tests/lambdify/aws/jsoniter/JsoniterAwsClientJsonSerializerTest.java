@@ -1,4 +1,4 @@
-package lambdify.aws.client.core.jsoniter;
+package lambdify.aws.jsoniter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

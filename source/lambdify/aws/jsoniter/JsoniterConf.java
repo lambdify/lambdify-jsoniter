@@ -1,4 +1,4 @@
-package lambdify.aws.client.core.jsoniter;
+package lambdify.aws.jsoniter;
 
 import com.jsoniter.spi.Config;
 import com.jsoniter.extra.JacksonCompatibilityMode;

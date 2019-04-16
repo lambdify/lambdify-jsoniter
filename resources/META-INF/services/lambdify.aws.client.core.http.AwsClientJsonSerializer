@@ -1,1 +1,1 @@
-lambdify.aws.client.core.jsoniter.JsoniterAwsClientJsonSerializer
+lambdify.aws.jsoniter.JsoniterAwsClientJsonSerializer
