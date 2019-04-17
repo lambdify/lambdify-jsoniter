@@ -7,12 +7,12 @@ parent:
 
 groupId: org.lambdify
 artifactId: lambdify-jsoniter
-version: 0.7.3.Final
+version: 0.8.0.Final
 packaging: jar
 
 properties:
   version.jackson: "2.9.5"
-  version.jsoniter: "0.9.19"
+  version.jsoniter: "0.9.23"
   version.lombok: 1.18.4
 
 dependencies:
